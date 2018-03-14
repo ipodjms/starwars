@@ -35,7 +35,52 @@ function verInformacoes(elemento) {
     var conteudoModal = $(elemento).prev().html();
     //$("body").prepend(conteudoModal);
     $(elemento).prev().toggle();
+
+    $(elemento).addClass('info-checked');
+
 }
+
+
+
+
+function somaPontoTotal(ponto,informacoes) {
+
+    if (informacoes == false) {
+        ponto = ponto + 10;    
+    }else {
+        ponto = ponto + 5;
+    }
+}
+
+
+var informacao = false;
+
+function verificaInformacoes(btn) {
+    // verificar se exite o atributo ou classe,
+    alert("inf btn");
+    console.log (informacao);
+
+}
+
+
+
+// falta funcao para trazer fotos e colcoar de background na ordem
+// falta gravar pontuacao no localstorage
+// falta comparar pontuacao mininma e maxima
+
+
+function EncontraNomeEposicao(btn) {
+
+    console.log( $(btn).prev().prev().prev("div").children("span").eq(0).text());
+    console.log( $(btn).prev("input").val());
+    var nome = $(btn).prev("input").val();
+    var posicao = $(btn).prev().prev().prev("div").children("span").eq(0).text();
+
+    ComparaNomePersonagem(nome,posicao);
+    
+}
+
+
 
 
 var JsonPersonagens = "";
@@ -47,34 +92,38 @@ function EncontraInfoPersonagem() {
         JsonPersonagens = data;
         //JsonPersonagens = data.results;
         //console.log(data);
+
+
             $.each(JsonPersonagens.results, function (index, value) {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonamgem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input type='text' class='basics'/>  </div>");
-
-                $("#infoPersonamgem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.gender + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.homeworld + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.birth_year + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.skin_color + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.hair_color + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.mass + "</span> ");
-                $("#infoPersonamgem" + index).append("<span>" + value.height + "</span> ");
+                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input style='border:1px solid red; padding:20px;' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' style='border:1px solid red; cursor:pointer; padding:20px;' id='ButtonPersonagem" + index + "' type='button' value='ok' class='btnBusca'/>  </div>");
+///
+                $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
+                $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.gender + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.homeworld + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.birth_year + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.skin_color + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.hair_color + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.mass + "</span> ");
+                $("#infoPersonagem" + index).append("<span>" + value.height + "</span> ");
 
                 //species
                 //starships
                 //vehicles
                 //films
 
+
+                
+
             });
 
-            var options = {
-                data:  JsonPersonagens.results,
-                getValue: "name",
-            };            
-            $(".basics").easyAutocomplete(options);
 
+//
+           // $("#inputPersonagem1").easyAutocomplete(option;
+//
 
 
         },
@@ -95,8 +144,22 @@ function ExibeInfoPersonagem() {
 
 function ComparaNomePersonagem(nome,posicao) {
 
-    if (nome == JsonPersonagens.results[posicao].name) {
+
+
+    var nomePosMinusculo = JsonPersonagens.results[posicao].name;
+    nomePosMinusculo = nomePosMinusculo.toLowerCase()
+
+    var objetoNome = nome;
+    objetoNomeMinusculo = objetoNome.toLowerCase();
+
+    alert(objetoNomeMinusculo);
+    alert(nomePosMinusculo);    
+
+    if (objetoNomeMinusculo == nomePosMinusculo) {
         console.log("Voce acertou o nome");
+
+        // desabilitar o botao ok.
+
     }
 
     else {
@@ -125,13 +188,6 @@ function iniciaJogo() {
 function FinalizaJogo() {
     // pause timer
 }
-
-
-
-
-
-
-
 
 
 // A $( document ).ready() block.
