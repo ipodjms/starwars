@@ -1,0 +1,42 @@
+* {
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    background: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+input, textarea, select {
+    /* fix ios 6  native styles */
+   -webkit-appearance: none !important;
+   border-radius: 0;
+}
+
+/* isso pode te ajudar
+Menu Hamburguer
+https://codepen.io/designcouch/pen/Atyop
+
+Centralizando elemento que tem tamanho e m porcentagem....
+http://codepen.io/chriscoyier/pen/BvdgL
+
+*/
+
+
+
+/* responsive */
+@media (min-width: 320px) {  }
+@media (min-width: 768px) {  }
+@media (min-width: 992px) {  }
+@media (min-width: 1200px) {  }
+
+/* ipads*/
+@media (min-width: 768px) and (max-width: 1024px) {  }
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {  }
+
+/* outros */
+@media (max-width: 992px) {  }
+@media (max-width: 667px) {  }
+
+
+
