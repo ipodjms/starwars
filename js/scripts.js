@@ -38,12 +38,9 @@ function verInformacoes(elemento) {
 }
 
 
-
-
-
-
+var JsonPersonagens = "";
 function EncontraInfoPersonagem() {       
-    var JsonPersonagens = "";
+    
     $.ajax({
       url: 'https://swapi.co/api/people/',
       success: function(data) {
@@ -54,7 +51,7 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonamgem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a>  </div>");
+                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonamgem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input type='text' class='basics'/>  </div>");
 
                 $("#infoPersonamgem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
                 $("#infoPersonamgem" + index).append("<span>" + value.gender + "</span> ");
@@ -71,6 +68,14 @@ function EncontraInfoPersonagem() {
                 //films
 
             });
+
+            var options = {
+                data:  JsonPersonagens.results,
+                getValue: "name",
+            };            
+            $(".basics").easyAutocomplete(options);
+
+
 
         },
         error: function(){
@@ -120,6 +125,11 @@ function iniciaJogo() {
 function FinalizaJogo() {
     // pause timer
 }
+
+
+
+
+
 
 
 
