@@ -4,6 +4,7 @@
 var c = 0;
 var t;
 var timer_is_on = 0;
+var totalPontos = 0;
 
 
 // FUNCOES DE TIMER -- W3SCHOOLL
@@ -28,8 +29,16 @@ function stopCount() {
     timer_is_on = 0;
 }
 
+function verInformacoes(elemento) {
+    //console.log( $(this) );
+    console.log( $(elemento).parent().html());
+    var conteudoModal = $(elemento).prev().html();
+    //$("body").prepend(conteudoModal);
+    $(elemento).prev().toggle();
+}
 
-var totalPontos = 0;
+
+
 
 
 
@@ -45,7 +54,7 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div id='infoPersonamgem" + index + "'></div> <a href='#' onclick='verInformacoes();'>Ver Informacoes</a>  </div>");
+                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonamgem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a>  </div>");
 
                 $("#infoPersonamgem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
                 $("#infoPersonamgem" + index).append("<span>" + value.gender + "</span> ");
