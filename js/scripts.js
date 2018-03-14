@@ -38,6 +38,8 @@ function verInformacoes(elemento) {
 
     $(elemento).addClass('info-checked');
 
+    verificaInformacoes(elemento);
+
 }
 
 
@@ -55,10 +57,10 @@ function somaPontoTotal(ponto,informacoes) {
 
 var informacao = false;
 
-function verificaInformacoes(btn) {
+function verificaInformacoes(elemento) {
     // verificar se exite o atributo ou classe,
-    alert("inf btn");
-    console.log (informacao);
+    alert(    $(elemento).addClass('info-checked'););
+   // se tiver a classe info, vamos passar informao pra verdadeirohasCLasss
 
 }
 
