@@ -177,12 +177,14 @@ function ComparaNomePersonagem(nome,posicao) {
         informacao = false;
 
         $("#ButtonPersonagem" + posicao).attr("disabled","disabled");
+        $("#Personagem" + posicao).removeClass("border border-danger");   
         $("#Personagem" + posicao).addClass("border border-success");         
 
     }
 
     else {
         console.log("Voce errou o nome");
+        $("#Personagem" + posicao).removeClass("border border-success");
         $("#Personagem" + posicao).addClass("border border-danger");
     }
 
