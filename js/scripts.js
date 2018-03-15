@@ -20,8 +20,6 @@ function timedCount() {
     var segundos = c%60;
     //console.log(c%60);
 
-    
-    // FIX PARA EVITAR FUNCAO QUE CALCULA MIN / SEC
     $("#tempo").html("Tempo Restante: " + minutos + "min " +segundos+ " segundos");
     t = setTimeout(function(){ timedCount() }, 1000);
     if (c == 0) {
@@ -139,6 +137,7 @@ function EncontraInfoPersonagem() {
 
 
 function ComparaNomePersonagem(nome,posicao) {
+      x = 0;
 
       //console.log( $("#Personagem" + posicao).children("a"));
       //controlando o item de informacao apenas quando clicado
@@ -175,7 +174,7 @@ function ComparaNomePersonagem(nome,posicao) {
         informacao = false;
 
         $("#ButtonPersonagem" + posicao).attr("disabled","disabled");
-        $("#Personagem" + posicao).css("border-color","green");
+        $("#Personagem" + posicao).css("border-color","green");         
 
     }
 
@@ -183,10 +182,26 @@ function ComparaNomePersonagem(nome,posicao) {
         console.log("Voce errou o nome");
     }
 
+
+    // VERIFICANDO SE O CARA NAO GANHOU ANTES DO TEMPO ACABAR ...
+    $.each( $('input:button'), function (index, value) { 
+      if ($(this).attr("disabled") == "disabled") {
+        x =  x + 1;
+      }
+    });   
+
+    if (x == 2) {
+        // PARANDO O TIMER PARA DAR GAME OVER
+        stopCount();
+        //FinalizaJogo();
+    }      
+
 }
 
 
 function iniciaJogo() {
+    $("a.start").fadeOut(0);
+    $("a.restart").fadeIn(0);
     EncontraInfoPersonagem();
 }
 
