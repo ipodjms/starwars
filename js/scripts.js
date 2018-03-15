@@ -134,6 +134,8 @@ function ComparaNomePersonagem(nome,posicao) {
 
         informacao = false;
 
+        $("#ButtonPersonagem" + posicao).attr("disabled","disabled");
+
     }
 
     else {
