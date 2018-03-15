@@ -235,7 +235,7 @@ function ComparaNomePersonagem(nome,posicao) {
       }
     });   
 
-    if (perguntasCorretas == 1) {
+    if (perguntasCorretas == 10) {
         // PARANDO O TIMER PARA DAR GAME OVER
         stopCount();
         //FinalizaJogo();
