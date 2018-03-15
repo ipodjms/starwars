@@ -44,7 +44,7 @@ function stopCount() {
 
 function verInformacoes(elemento) {
     //console.log( $(this) );
-    console.log( $(elemento).parent().html());
+    //console.log( $(elemento).parent().html());
     var conteudoModal = $(elemento).prev().html();
     //$("body").prepend(conteudoModal);
     $(elemento).prev().toggle();
@@ -54,26 +54,15 @@ function verInformacoes(elemento) {
     // alterando para somar menos pontos
     informacao = true;
 
-
-
 }
-
-// falta funcao para trazer fotos e colcoar de background na ordem
-// falta gravar pontuacao no localstorage
-// falta comparar pontuacao mininma e maxima
-
 
 function EncontraNomeEposicao(btn) {
-
-    console.log( $(btn).prev().prev().prev("div").children("span").eq(0).text());
-    console.log( $(btn).prev("input").val());
+    //console.log( $(btn).prev().prev().prev("div").children("span").eq(0).text());
+    //console.log( $(btn).prev("input").val());
     var nome = $(btn).prev("input").val();
     var posicao = $(btn).prev().prev().prev("div").children("span").eq(0).text();
-
     ComparaNomePersonagem(nome,posicao);
-    
 }
-
 
 
 function EncontraInfoPersonagem() {       
@@ -82,6 +71,7 @@ function EncontraInfoPersonagem() {
       url: 'https://swapi.co/api/people/',
       success: function(data) {
         JsonPersonagens = data;
+        
         //JsonPersonagens = data.results;
         //console.log(data);
 
@@ -91,19 +81,16 @@ function EncontraInfoPersonagem() {
                 //console.log(key, value);
 
                 $(".content").append("<div class='holder' id='Personagem" + index + "'> <img src='images/" + index + ".png' alt='' /> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
-///
                 $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
                 $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
                 $("#infoPersonagem" + index).append("<span>Genero: " + value.gender + "</span><br /> ");
-                //$("#infoPersonagem" + index).append("<span>" + value.homeworld + "</span><br /> ");
                 $("#infoPersonagem" + index).append("<span>Ano de nascimento: " + value.birth_year + "</span><br /> ");
                 $("#infoPersonagem" + index).append("<span>Cor da pele: " + value.skin_color + "</span><br /> ");
                 $("#infoPersonagem" + index).append("<span>Cor do Cabelo: " + value.hair_color + "</span><br /> ");
                 $("#infoPersonagem" + index).append("<span>Peso: " + value.mass + "kg</span><br /> ");
                 $("#infoPersonagem" + index).append("<span>Altura:" + value.height + "cm</span><br /> ");
-
-                
-                // REPETIR // REFATORAR
+            
+                // REPETIR O POST // REFATORAR // 
                 //species
                 //starships
                 //vehicles
@@ -137,19 +124,19 @@ function EncontraInfoPersonagem() {
 }
 
 
-
 function ComparaNomePersonagem(nome,posicao) {
-      var perguntasCorretas = 0;
+    
+    var perguntasCorretas = 0;
 
-      //console.log( $("#Personagem" + posicao).children("a"));
-      //controlando o item de informacao apenas quando clicado
-      if ( $("#Personagem" + posicao).children("a").hasClass("info-checked")   ) {
-        informacao = true;
-      } else {
-        informacao = false;
-      }
+    //console.log( $("#Personagem" + posicao).children("a"));
+    //controlando o item de informacao apenas quando clicado
+    if ( $("#Personagem" + posicao).children("a").hasClass("info-checked")   ) {
+    informacao = true;
+    } else {
+    informacao = false;
+    }
 
-      console.log(informacao);
+    //console.log(informacao);
 
 
     var nomePosMinusculo = JsonPersonagens.results[posicao].name;
@@ -170,8 +157,8 @@ function ComparaNomePersonagem(nome,posicao) {
             ponto = ponto + 5;
         }
 
-        console.log(informacao);
-        console.log(ponto);
+        //console.log(informacao);
+        //console.log(ponto);
         $("#ponto").html("<b>Total de Pontos:</b> " + ponto);
 
         informacao = false;
@@ -201,7 +188,6 @@ function ComparaNomePersonagem(nome,posicao) {
         stopCount();
         //FinalizaJogo();
     }      
-
 }
 
 
@@ -218,7 +204,6 @@ function FinalizaJogo() {
 
 function gravaLocalStorage() {
 
-    
     var pontoPartida = ponto;
     var totalGeral = localStorage.getItem("totalGeral");
 
@@ -239,10 +224,7 @@ function gravaLocalStorage() {
         }    
     }
 
-    alert ("Nesta partida voce fez " + ponto + " -- Seu melhor eh " + totalGeral);
-
-
-    
+    alert ("Nesta partida voce fez " + ponto + " -- Seu melhor é " + totalGeral);    
 
 }
     
@@ -281,7 +263,6 @@ $( window ).scroll(function() {
 });
 
 //startCount();
-
 //EncontraInfoPersonagem();
 
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Star Wars</title>
+<title>Jones Wars</title>
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
 <meta name="description" content="Free Web tutorials">
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -39,6 +39,10 @@
         max-width: 600px;
     }
 
+    .fixMe {
+        position: fixed;bottom:0;right:0;
+    }
+
 </style>
 </head>
 
@@ -59,12 +63,51 @@
                 <a class="start btn btn-primary" href="#" onclick="startCount();">Comecar jogo</a>
                 <a style="display: none" class="restart btn btn-warning" href="index.html">Restart</a>
         </div>
-        <div class="footer">
-            <address>
-               
-            </address>
-        </div>
+
     </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-info fixMe" data-toggle="modal" data-target="#exampleModalCenter">
+ Ver Nome dos personagens
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nome dos personagens Star Wars</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col">
+                <ul class="list-unstyled">
+                    
+                    <li>Leia Organa</li>
+                    <li>Biggs Darklighter</li>
+                    <li>Luke Skywalker</li>
+                    <li>R2-D2</li>
+                    <li>C-3PO</li>            
+                    <li>Owen Lars</li>
+                    <li>Darth Vader</li>
+                    <li>Beru Whitesun lars</li>
+                    <li>R5-D4</li>
+                </ul>                
+            </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>    
 
 </body>
 
