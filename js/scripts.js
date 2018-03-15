@@ -1,7 +1,7 @@
 
 
 
-var c = 0;
+var c = 120;
 var t;
 var timer_is_on = 0;
 var totalPontos = 0;
@@ -12,10 +12,19 @@ var JsonPersonagens = "";
 
 // FUNCOES DE TIMER -- W3SCHOOLL
 function timedCount() {
-    c = c + 1;
-    console.log(c);
+    c = c - 1;
+    //console.log(c);
+    
+    //console.log(Math.floor(c/60));
+    var minutos = Math.floor(c/60);
+    var segundos = c%60;
+    //console.log(c%60);
+
+    
+    // FIX PARA EVITAR FUNCAO QUE CALCULA MIN / SEC
+    $("#tempo").html("Tempo Restante: " + minutos + "min " +segundos+ " segundos");
     t = setTimeout(function(){ timedCount() }, 1000);
-    if (c == 10) {
+    if (c == 0) {
         stopCount();
     }
 }
@@ -25,11 +34,14 @@ function startCount() {
         timer_is_on = 1;
         timedCount();
     }
+
+    iniciaJogo();
 }
 
 function stopCount() {
     clearTimeout(t);
     timer_is_on = 0;
+    FinalizaJogo();
 }
 
 function verInformacoes(elemento) {
@@ -173,16 +185,17 @@ function ComparaNomePersonagem(nome,posicao) {
 
 }
 
-function gravaLocalStorage() {
-
-}
 
 function iniciaJogo() {
-    // start timer
+    EncontraInfoPersonagem();
 }
 
 function FinalizaJogo() {
-    // pause timer
+    alert("Game Over! Pontuacao Final: " + ponto);
+}
+
+function gravaLocalStorage() {
+
 }
     
 
@@ -221,7 +234,7 @@ $( window ).scroll(function() {
 
 //startCount();
 
-EncontraInfoPersonagem();
+//EncontraInfoPersonagem();
 
 
 
