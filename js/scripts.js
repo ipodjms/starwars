@@ -78,7 +78,7 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input style='border:1px solid red; padding:20px;' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' style='border:1px solid red; cursor:pointer; padding:20px;' id='ButtonPersonagem" + index + "' type='button' value='ok' class='btnBusca'/>  </div>");
+                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input style='border:1px solid red; padding:20px;' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' style='border:1px solid red; cursor:pointer; padding:20px;' id='ButtonPersonagem" + index + "' type='button' value='ok' class='btnBusca'/>  </div>");
 ///
                 $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
                 $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
@@ -102,9 +102,11 @@ function EncontraInfoPersonagem() {
             $( "input:text" ).keydown(function( event ) {
               if ( event.which == 13 ) {
                event.preventDefault();
+
                //console.log($(this).next("input:button").attr("disabled"));
                if ($(this).next("input:button").attr("disabled") != "disabled") {
-                $(this).next("input:button").click();
+                   //console.log($(this).prev().hasClass("info-checked"));
+                    $(this).next("input:button").click();
                }
 
                else {
@@ -112,7 +114,7 @@ function EncontraInfoPersonagem() {
                }
               }
 
-            });
+            });            
 
 
         },
@@ -126,6 +128,17 @@ function EncontraInfoPersonagem() {
 
 function ComparaNomePersonagem(nome,posicao) {
 
+      //console.log( $("#Personagem" + posicao).children("a"));
+      //controlando o item de informacao apenas quando clicado
+      if ( $("#Personagem" + posicao).children("a").hasClass("info-checked")   ) {
+        informacao = true;
+      } else {
+        informacao = false;
+      }
+
+      console.log(informacao);
+
+
     var nomePosMinusculo = JsonPersonagens.results[posicao].name;
     nomePosMinusculo = nomePosMinusculo.toLowerCase()
 
@@ -136,7 +149,7 @@ function ComparaNomePersonagem(nome,posicao) {
     alert(nomePosMinusculo);    
 
     if (objetoNomeMinusculo == nomePosMinusculo) {
-        console.log("Voce acertou o nome");
+        console.log("Voce acertou o nome");        
 
         if (informacao != true) {
             ponto = ponto + 10;    
