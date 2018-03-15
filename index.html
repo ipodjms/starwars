@@ -22,7 +22,7 @@
     body {
         padding: 25px 0;
     }
-    .holder {border:1px solid #ccc; padding:20px; margin-top:20px;margin-bottom:20px;}
+    .holder {border:1px solid #ccc; padding:20px; margin-top:20px;margin-bottom:20px;max-width: 640px;}
     .holder a {
         margin-bottom: 10px !important; display:  block;
     }
@@ -31,8 +31,12 @@
     }
     ul.desc { margin-top:0px;margin-bottom:20px;}
 
-    .infoPersonagem {
+    .infoPersonagem, .holder img {
         margin-bottom: 20px;
+    }
+
+    img {
+        max-width: 600px;
     }
 
 </style>
@@ -43,11 +47,11 @@
         <div class="header">
             <h1>Jones Wars</h1>
             <p>- Escreva o nome do personagem que aparece no retangulo e aperte enter ou clique em OK.</p>          
-            <p>- Depois de clicar em iniciar voce tem 2 minutos para acertar o maior numero de personagens possiveis</p>
-            <p>- Voce pode clicar em informacoes para ter mais informacoes sobre o personagem da foto</p> 
-            <p>- Acertar sem ver informacao = 10 pontos </p>
-            <p>- Acertar vendo a informacao = 5 pontos </p>  
-            <img src="images/darth-vader.svg" alt="" style="max-width: 50px;">       
+            <p>- Depois de clicar em iniciar voce tem 2 minutos para acertar o maior numero de personagens possiveis.</p>
+            <p>- Voce pode clicar em informacoes para ter mais informacoes sobre o personagem da foto.</p> 
+            <p>- Acertar sem ver informacao = 10 pontos. </p>
+            <p>- Acertar vendo a informacao = 5 pontos. </p>  
+            <img src="images/darth-vader.svg" alt="" style="max-width: 80px;">       
         </div>
         <div class="content">
                 <p id="tempo"></p>

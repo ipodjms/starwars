@@ -90,7 +90,7 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div class='holder' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
+                $(".content").append("<div class='holder' id='Personagem" + index + "'> <img src='images/" + index + ".png' alt='' /> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
 ///
                 $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
                 $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
@@ -177,12 +177,13 @@ function ComparaNomePersonagem(nome,posicao) {
         informacao = false;
 
         $("#ButtonPersonagem" + posicao).attr("disabled","disabled");
-        $("#Personagem" + posicao).css("border-color","green");         
+        $("#Personagem" + posicao).addClass("border border-success");         
 
     }
 
     else {
         console.log("Voce errou o nome");
+        $("#Personagem" + posicao).addClass("border border-danger");
     }
 
 
