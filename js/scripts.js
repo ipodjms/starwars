@@ -65,6 +65,44 @@ function EncontraNomeEposicao(btn) {
 }
 
 
+
+
+function EncontraFilmePersonagem(urlFilmes,pos) {   
+
+           // console.log(urlFilmes);
+           //var meusFilmes = [];
+
+           $("#infoPersonagem" + pos).append("<br /><span><b>Filmes:<b/></span><br /> ");  
+
+
+            $.each(urlFilmes, function (index, value) {
+                
+               // console.log(index, value);
+
+                $.ajax({
+                  url: value,
+                  success: function(data) {
+
+                    JsonFilmePersonagem = data;
+
+                     //meusFilmes.push(JsonFilmePersonagem.title);
+
+                    $("#infoPersonagem" + pos).append("<span>- " + JsonFilmePersonagem.title + "</span><br /> ");  
+
+                    //console.log(meusFilmes);                      
+                    
+                    },
+                    error: function(){
+                    alert('Impossivel recuperar filmes, comece de novo.');
+                  }
+                });    
+
+            });   
+
+   }
+
+
+
 function EncontraInfoPersonagem() {       
     
     $.ajax({
@@ -78,7 +116,7 @@ function EncontraInfoPersonagem() {
 
             $.each(JsonPersonagens.results, function (index, value) {
                 
-                //console.log(key, value);
+                console.log(index, value);
 
                 $(".content").append("<div class='holder' id='Personagem" + index + "'> <img src='images/" + index + ".png' alt='' /> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
                 $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
@@ -95,6 +133,10 @@ function EncontraInfoPersonagem() {
                 //starships
                 //vehicles
                 //films
+
+                var pos = index;
+
+                EncontraFilmePersonagem(JsonPersonagens.results[index].films,pos);
 
             });
 
