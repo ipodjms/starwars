@@ -99,6 +99,21 @@ function EncontraInfoPersonagem() {
 
             });
 
+            $( "input:text" ).keydown(function( event ) {
+              if ( event.which == 13 ) {
+               event.preventDefault();
+               //console.log($(this).next("input:button").attr("disabled"));
+               if ($(this).next("input:button").attr("disabled") != "disabled") {
+                $(this).next("input:button").click();
+               }
+
+               else {
+                console.log("Voce ja pontuou aqui!!")
+               }
+              }
+
+            });
+
 
         },
         error: function(){
@@ -135,6 +150,7 @@ function ComparaNomePersonagem(nome,posicao) {
         informacao = false;
 
         $("#ButtonPersonagem" + posicao).attr("disabled","disabled");
+        $("#Personagem" + posicao).css("border-color","green");
 
     }
 
@@ -155,12 +171,16 @@ function iniciaJogo() {
 function FinalizaJogo() {
     // pause timer
 }
-
+    
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
 
     console.log( "Pronto para detonar!" );
+
+
+
+
     // larguraTela = $(window).width();
     // console.log ("Largura da tela é " + larguraTela);
     // alturaTela = $(window).height();
