@@ -118,7 +118,7 @@ function EncontraInfoPersonagem() {
 
         },
         error: function(){
-        alert('error!');
+        alert('viIIIIISHHH A API está zuada! --  tente de novo');
       }
     });
 }
@@ -145,8 +145,8 @@ function ComparaNomePersonagem(nome,posicao) {
     var objetoNome = nome;
     objetoNomeMinusculo = objetoNome.toLowerCase();
 
-    alert(objetoNomeMinusculo);
-    alert(nomePosMinusculo);    
+    //alert(objetoNomeMinusculo);
+    //alert(nomePosMinusculo);    
 
     if (objetoNomeMinusculo == nomePosMinusculo) {
         console.log("Voce acertou o nome");        
