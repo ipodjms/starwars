@@ -5,6 +5,9 @@ var c = 0;
 var t;
 var timer_is_on = 0;
 var totalPontos = 0;
+var informacao = false;
+var ponto = 0;
+var JsonPersonagens = "";
 
 
 // FUNCOES DE TIMER -- W3SCHOOLL
@@ -38,33 +41,10 @@ function verInformacoes(elemento) {
 
     $(elemento).addClass('info-checked');
 
-    verificaInformacoes(elemento);
+    // alterando para somar menos pontos
+    informacao = true;
 
 }
-
-
-
-
-function somaPontoTotal(ponto,informacoes) {
-
-    if (informacoes == false) {
-        ponto = ponto + 10;    
-    }else {
-        ponto = ponto + 5;
-    }
-}
-
-
-var informacao = false;
-
-function verificaInformacoes(elemento) {
-    // verificar se exite o atributo ou classe,
-    alert(    $(elemento).addClass('info-checked'););
-   // se tiver a classe info, vamos passar informao pra verdadeirohasCLasss
-
-}
-
-
 
 // falta funcao para trazer fotos e colcoar de background na ordem
 // falta gravar pontuacao no localstorage
@@ -84,8 +64,6 @@ function EncontraNomeEposicao(btn) {
 
 
 
-
-var JsonPersonagens = "";
 function EncontraInfoPersonagem() {       
     
     $.ajax({
@@ -112,20 +90,14 @@ function EncontraInfoPersonagem() {
                 $("#infoPersonagem" + index).append("<span>" + value.mass + "</span> ");
                 $("#infoPersonagem" + index).append("<span>" + value.height + "</span> ");
 
+                
+                // REPETIR // REFATORAR
                 //species
                 //starships
                 //vehicles
                 //films
 
-
-                
-
             });
-
-
-//
-           // $("#inputPersonagem1").easyAutocomplete(option;
-//
 
 
         },
@@ -136,17 +108,8 @@ function EncontraInfoPersonagem() {
 }
 
 
-//      swiper.appendSlide('<div class="swiper-slide">Slide ' + "teste" + '</div>');
-
-function ExibeInfoPersonagem() {
-
-}
-
-
 
 function ComparaNomePersonagem(nome,posicao) {
-
-
 
     var nomePosMinusculo = JsonPersonagens.results[posicao].name;
     nomePosMinusculo = nomePosMinusculo.toLowerCase()
@@ -160,7 +123,16 @@ function ComparaNomePersonagem(nome,posicao) {
     if (objetoNomeMinusculo == nomePosMinusculo) {
         console.log("Voce acertou o nome");
 
-        // desabilitar o botao ok.
+        if (informacao != true) {
+            ponto = ponto + 10;    
+        }else {
+            ponto = ponto + 5;
+        }
+
+        console.log(informacao);
+        console.log(ponto);
+
+        informacao = false;
 
     }
 
@@ -168,15 +140,6 @@ function ComparaNomePersonagem(nome,posicao) {
         console.log("Voce errou o nome");
     }
 
-}
-
-
-function SomaPontoSemDuvida (){
-
-}
-
-function somaPontoComDuvida() {
-    
 }
 
 function gravaLocalStorage() {
