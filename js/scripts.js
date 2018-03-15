@@ -137,7 +137,7 @@ function EncontraInfoPersonagem() {
 
 
 function ComparaNomePersonagem(nome,posicao) {
-      x = 0;
+      var perguntasCorretas = 0;
 
       //console.log( $("#Personagem" + posicao).children("a"));
       //controlando o item de informacao apenas quando clicado
@@ -186,11 +186,11 @@ function ComparaNomePersonagem(nome,posicao) {
     // VERIFICANDO SE O CARA NAO GANHOU ANTES DO TEMPO ACABAR ...
     $.each( $('input:button'), function (index, value) { 
       if ($(this).attr("disabled") == "disabled") {
-        x =  x + 1;
+        perguntasCorretas =  perguntasCorretas + 1;
       }
     });   
 
-    if (x == 2) {
+    if (perguntasCorretas == 10) {
         // PARANDO O TIMER PARA DAR GAME OVER
         stopCount();
         //FinalizaJogo();
