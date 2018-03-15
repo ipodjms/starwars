@@ -161,7 +161,7 @@ function EncontraInfoPersonagem() {
 
         },
         error: function(){
-        alert('viIIIIISHHH A API está zuada! --  tente de novo');
+        alert('viIIIIISHHH A API baleou! --  tente de novo');
       }
     });
 }
@@ -235,7 +235,7 @@ function ComparaNomePersonagem(nome,posicao) {
       }
     });   
 
-    if (perguntasCorretas == 10) {
+    if (perguntasCorretas == 1) {
         // PARANDO O TIMER PARA DAR GAME OVER
         stopCount();
         //FinalizaJogo();
@@ -273,12 +273,15 @@ function gravaLocalStorage() {
 
             if (totalGeral < ponto) {
             localStorage.setItem('totalGeral', ponto);
-            totalGeral = localStorage.getItem("totalGeral");
+            totalGeral = localStorage.getItem("totalGeral");            
             
         }    
     }
 
     alert ("Nesta partida voce fez " + ponto + " -- Seu melhor é " + totalGeral);    
+
+    $("#melhor").html("<b>Seu Melhor:</b> " + totalGeral);
+    $("#melhor").css("display","block");
 
 }
     
