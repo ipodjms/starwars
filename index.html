@@ -9,23 +9,24 @@
 <meta name="author" content="Hege Refsnes">
 
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!-- Se quiser usar bootstrap descomenta aê, mas coloca o script no lugar certo
- // Latest compiled and minified CSS
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- // Optional theme
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-// Latest compiled and minified JavaScript
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<script src="js/scripts.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="icon" href="images/favicon.png"/>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script><script src="js/scripts.js"></script>
 
-
+<style>
+    .holder {border:1px solid #ccc; padding:20px; margin-top:20px;margin-bottom:20px;}
+    .holder a {
+        margin-bottom: 10px !important; display:  block;
+    }
+    .holder input {
+         margin-bottom: 10px !important; display:  block;  
+    }
+</style>
 </head>
 
 <body>
@@ -40,8 +41,8 @@
         </div>
         <div class="content">
                 <p id="tempo"></p>
-                <a class="start" href="#" onclick="startCount();">Comecar jogo</a>
-                <a style="display: none" class="restart" href="index.html">Restart</a>
+                <a class="start btn btn-primary" href="#" onclick="startCount();">Comecar jogo</a>
+                <a style="display: none" class="restart btn btn-warning" href="index.html">Restart</a>
         </div>
         <div class="footer">
             <address>

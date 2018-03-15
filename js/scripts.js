@@ -88,7 +88,7 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div style='border:1px solid red; padding:20px;' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ver Informacoes</a> <input style='border:1px solid red; padding:20px;' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' style='border:1px solid red; cursor:pointer; padding:20px;' id='ButtonPersonagem" + index + "' type='button' value='ok' class='btnBusca'/>  </div>");
+                $(".content").append("<div class='holder' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
 ///
                 $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
                 $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
@@ -207,9 +207,36 @@ function iniciaJogo() {
 
 function FinalizaJogo() {
     alert("Game Over! Pontuacao Final: " + ponto);
+    gravaLocalStorage();
 }
 
 function gravaLocalStorage() {
+
+    
+    var pontoPartida = ponto;
+    var totalGeral = localStorage.getItem("totalGeral");
+
+    if (totalGeral == undefined || totalGeral == null) {
+
+        localStorage.setItem('totalGeral', ponto);
+
+        totalGeral = localStorage.getItem('totalGeral');
+
+    }
+
+    else {
+
+            if (totalGeral < ponto) {
+            localStorage.setItem('totalGeral', ponto);
+            totalGeral = localStorage.getItem("totalGeral");
+            
+        }    
+    }
+
+    alert ("Nesta partida voce fez " + ponto + " -- Seu melhor eh " + totalGeral);
+
+
+    
 
 }
     
