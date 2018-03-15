@@ -90,24 +90,21 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div class='holder' id='Personagem" + index + "'> <ul style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></ul> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
-//
-
-                $("#infoPersonagem" + index).append("<li class='index' style='display:none;'>" + index + "</li> ");
-                $("#infoPersonagem" + index).append("<li class='name' style='display:none;'>" + value.name + "</li> ");
-                $("#infoPersonagem" + index).append("<li>Genero: " + value.gender + "</li> ");
-                //$("#infoPersonagem" + index).append("<li>" + value.homeworld + "</li> ");
-                $("#infoPersonagem" + index).append("<li>Ano de aniversario: " + value.birth_year + "</li> ");
-                $("#infoPersonagem" + index).append("<li>Cor da pele: " + value.skin_color + "</li> ");
-                $("#infoPersonagem" + index).append("<li>Cor do cabelo: " + value.hair_color + "</li> ");
-                $("#infoPersonagem" + index).append("<li>Peso: " + value.mass + " kg</li> ");
-                $("#infoPersonagem" + index).append("<li>Altura: " + value.height + " cm</li> ");
-
+                $(".content").append("<div class='holder' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
+///
+                $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
+                $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
+                $("#infoPersonagem" + index).append("<span>Genero: " + value.gender + "</span><br /> ");
+                //$("#infoPersonagem" + index).append("<span>" + value.homeworld + "</span><br /> ");
+                $("#infoPersonagem" + index).append("<span>Ano de nascimento: " + value.birth_year + "</span><br /> ");
+                $("#infoPersonagem" + index).append("<span>Cor da pele: " + value.skin_color + "</span><br /> ");
+                $("#infoPersonagem" + index).append("<span>Cor do Cabelo: " + value.hair_color + "</span><br /> ");
+                $("#infoPersonagem" + index).append("<span>Peso: " + value.mass + "kg</span><br /> ");
+                $("#infoPersonagem" + index).append("<span>Altura:" + value.height + "cm</span><br /> ");
 
                 
                 // REPETIR // REFATORAR
                 //species
-                //homeworld
                 //starships
                 //vehicles
                 //films
