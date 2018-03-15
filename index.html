@@ -19,6 +19,9 @@
 <link rel="icon" href="images/favicon.png"/>
 
 <style>
+    body {
+        padding: 25px 0;
+    }
     .holder {border:1px solid #ccc; padding:20px; margin-top:20px;margin-bottom:20px;}
     .holder a {
         margin-bottom: 10px !important; display:  block;
@@ -26,6 +29,12 @@
     .holder input {
          margin-bottom: 10px !important; display:  block;  
     }
+    ul.desc { margin-top:0px;margin-bottom:20px;}
+
+    .infoPersonagem {
+        padding-left: 20px;
+    }
+    
 </style>
 </head>
 
@@ -41,6 +50,7 @@
         </div>
         <div class="content">
                 <p id="tempo"></p>
+                <p id="ponto"><b>Total de Pontos:</b> 0</p>
                 <a class="start btn btn-primary" href="#" onclick="startCount();">Comecar jogo</a>
                 <a style="display: none" class="restart btn btn-warning" href="index.html">Restart</a>
         </div>

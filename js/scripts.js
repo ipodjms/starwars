@@ -20,7 +20,7 @@ function timedCount() {
     var segundos = c%60;
     //console.log(c%60);
 
-    $("#tempo").html("Tempo Restante: " + minutos + "min " +segundos+ " segundos");
+    $("#tempo").html("<b>Tempo Restante:</b> " + minutos + "min " +segundos+ " segundos");
     t = setTimeout(function(){ timedCount() }, 1000);
     if (c == 0) {
         stopCount();
@@ -53,6 +53,8 @@ function verInformacoes(elemento) {
 
     // alterando para somar menos pontos
     informacao = true;
+
+
 
 }
 
@@ -88,21 +90,24 @@ function EncontraInfoPersonagem() {
                 
                 //console.log(key, value);
 
-                $(".content").append("<div class='holder' id='Personagem" + index + "'> <div style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></div> <a href='#' onclick='verInformacoes(this);'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
-///
-                $("#infoPersonagem" + index).append("<span class='index' style='display:none;'>" + index + "</span> ");
-                $("#infoPersonagem" + index).append("<span class='name' style='display:none;'>" + value.name + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.gender + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.homeworld + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.birth_year + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.skin_color + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.hair_color + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.mass + "</span> ");
-                $("#infoPersonagem" + index).append("<span>" + value.height + "</span> ");
+                $(".content").append("<div class='holder' id='Personagem" + index + "'> <ul style='display:none;' class='infoPersonagem' id='infoPersonagem" + index + "'></ul> <a href='#' onclick='verInformacoes(this);return false;'>Ajuda?</a><input class='form-control' placeholder='Nome do Personagem' id='inputPersonagem" + index + "' type='text' class='basics'/> <input onclick='EncontraNomeEposicao(this);' id='ButtonPersonagem" + index + "' type='button' value='Validar' class=' btn btn-primary btnBusca'/>  </div>");
+//
+
+                $("#infoPersonagem" + index).append("<li class='index' style='display:none;'>" + index + "</li> ");
+                $("#infoPersonagem" + index).append("<li class='name' style='display:none;'>" + value.name + "</li> ");
+                $("#infoPersonagem" + index).append("<li>Genero: " + value.gender + "</li> ");
+                //$("#infoPersonagem" + index).append("<li>" + value.homeworld + "</li> ");
+                $("#infoPersonagem" + index).append("<li>Ano de aniversario: " + value.birth_year + "</li> ");
+                $("#infoPersonagem" + index).append("<li>Cor da pele: " + value.skin_color + "</li> ");
+                $("#infoPersonagem" + index).append("<li>Cor do cabelo: " + value.hair_color + "</li> ");
+                $("#infoPersonagem" + index).append("<li>Peso: " + value.mass + " kg</li> ");
+                $("#infoPersonagem" + index).append("<li>Altura: " + value.height + " cm</li> ");
+
 
                 
                 // REPETIR // REFATORAR
                 //species
+                //homeworld
                 //starships
                 //vehicles
                 //films
@@ -170,6 +175,7 @@ function ComparaNomePersonagem(nome,posicao) {
 
         console.log(informacao);
         console.log(ponto);
+        $("#ponto").html("<b>Total de Pontos:</b> " + ponto);
 
         informacao = false;
 
